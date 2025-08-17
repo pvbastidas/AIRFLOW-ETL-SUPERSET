@@ -265,7 +265,7 @@ docker-compose  logs  airflow
 - Verifica que puedas ver las tablas creadas y juega con los datos 😃
 
 ```
-
+![Superset](dbt-airflow-docker-compose-master/bi.png)
   
 
 ## 🔗 Conexiones y URLs
