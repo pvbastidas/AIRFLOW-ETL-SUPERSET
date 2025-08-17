@@ -1,0 +1,27 @@
+[2025-08-16 21:25:39,142] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_dbt_analytics_schema manual__2025-08-16T21:25:27.221750+00:00 [queued]>
+[2025-08-16 21:25:39,149] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_dbt_analytics_schema manual__2025-08-16T21:25:27.221750+00:00 [queued]>
+[2025-08-16 21:25:39,150] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 21:25:39,151] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 21:25:39,151] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 21:25:39,160] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): create_dbt_analytics_schema> on 2025-08-16 21:25:27.221750+00:00
+[2025-08-16 21:25:39,163] {standard_task_runner.py:52} INFO - Started process 347 to run task
+[2025-08-16 21:25:39,167] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'create_dbt_analytics_schema', 'manual__2025-08-16T21:25:27.221750+00:00', '--job-id', '18', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmp3pmwmayi', '--error-file', '/tmp/tmp9qy3ku4r']
+[2025-08-16 21:25:39,170] {standard_task_runner.py:80} INFO - Job 18: Subtask create_dbt_analytics_schema
+[2025-08-16 21:25:39,250] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.create_dbt_analytics_schema manual__2025-08-16T21:25:27.221750+00:00 [running]> on host 6a6e6aafe640
+[2025-08-16 21:25:39,321] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=create_dbt_analytics_schema
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T21:25:27.221750+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T21:25:27.221750+00:00
+[2025-08-16 21:25:39,323] {sql.py:262} INFO - Executing: CREATE SCHEMA IF NOT EXISTS dbt_analytics;
+[2025-08-16 21:25:39,336] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 21:25:39,358] {logging_mixin.py:115} WARNING - /usr/local/lib/python3.8/site-packages/airflow/models/connection.py:339 DeprecationWarning: The "schema" arg has been renamed to "database" as it contained the database name.Please use "database" to set the database name.
+[2025-08-16 21:25:39,368] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 21:25:39,377] {sql.py:375} INFO - Running statement: CREATE SCHEMA IF NOT EXISTS dbt_analytics;, parameters: None
+[2025-08-16 21:25:39,391] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=1_load_initial_data, task_id=create_dbt_analytics_schema, execution_date=20250816T212527, start_date=20250816T212539, end_date=20250816T212539
+[2025-08-16 21:25:39,424] {local_task_job.py:156} INFO - Task exited with return code 0
+[2025-08-16 21:25:39,456] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

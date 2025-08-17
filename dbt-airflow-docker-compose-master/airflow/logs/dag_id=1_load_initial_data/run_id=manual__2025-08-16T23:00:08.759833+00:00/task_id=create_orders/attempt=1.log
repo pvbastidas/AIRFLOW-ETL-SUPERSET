@@ -1,0 +1,67 @@
+[2025-08-16 23:00:16,592] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_orders manual__2025-08-16T23:00:08.759833+00:00 [queued]>
+[2025-08-16 23:00:16,604] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_orders manual__2025-08-16T23:00:08.759833+00:00 [queued]>
+[2025-08-16 23:00:16,606] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 23:00:16,607] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 23:00:16,608] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 23:00:16,620] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): create_orders> on 2025-08-16 23:00:08.759833+00:00
+[2025-08-16 23:00:16,624] {standard_task_runner.py:52} INFO - Started process 151 to run task
+[2025-08-16 23:00:16,631] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'create_orders', 'manual__2025-08-16T23:00:08.759833+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmpr7tfnlg4', '--error-file', '/tmp/tmpxlhsm3ma']
+[2025-08-16 23:00:16,634] {standard_task_runner.py:80} INFO - Job 14: Subtask create_orders
+[2025-08-16 23:00:16,715] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.create_orders manual__2025-08-16T23:00:08.759833+00:00 [running]> on host 03b58f608368
+[2025-08-16 23:00:16,798] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=create_orders
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T23:00:08.759833+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T23:00:08.759833+00:00
+[2025-08-16 23:00:16,799] {sql.py:262} INFO - Executing: 
+    CREATE TABLE IF NOT EXISTS dbt_raw_data.orders (
+        batch_id INT,
+        created_date TIMESTAMP,
+        updated_date TIMESTAMP,
+        submitted_date TIMESTAMP,
+        delivery_date DATE,
+        customer_id INT,
+        order_id INT,
+        site_code VARCHAR(18),
+        total DECIMAL(12,2),
+        total_shipping DECIMAL(12,2),
+        tracking_code VARCHAR(64),
+        order_status VARCHAR(128),
+        gmv_enabled BOOLEAN,
+        order_number VARCHAR(128),
+        shipping_by_tracking DECIMAL(12,2),
+        latitude FLOAT,
+        longitude FLOAT
+    );
+    
+[2025-08-16 23:00:16,815] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 23:00:16,845] {logging_mixin.py:115} WARNING - /usr/local/lib/python3.8/site-packages/airflow/models/connection.py:339 DeprecationWarning: The "schema" arg has been renamed to "database" as it contained the database name.Please use "database" to set the database name.
+[2025-08-16 23:00:16,856] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 23:00:16,864] {sql.py:375} INFO - Running statement: 
+    CREATE TABLE IF NOT EXISTS dbt_raw_data.orders (
+        batch_id INT,
+        created_date TIMESTAMP,
+        updated_date TIMESTAMP,
+        submitted_date TIMESTAMP,
+        delivery_date DATE,
+        customer_id INT,
+        order_id INT,
+        site_code VARCHAR(18),
+        total DECIMAL(12,2),
+        total_shipping DECIMAL(12,2),
+        tracking_code VARCHAR(64),
+        order_status VARCHAR(128),
+        gmv_enabled BOOLEAN,
+        order_number VARCHAR(128),
+        shipping_by_tracking DECIMAL(12,2),
+        latitude FLOAT,
+        longitude FLOAT
+    );
+    , parameters: None
+[2025-08-16 23:00:16,884] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=1_load_initial_data, task_id=create_orders, execution_date=20250816T230008, start_date=20250816T230016, end_date=20250816T230016
+[2025-08-16 23:00:16,924] {local_task_job.py:156} INFO - Task exited with return code 0
+[2025-08-16 23:00:16,974] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

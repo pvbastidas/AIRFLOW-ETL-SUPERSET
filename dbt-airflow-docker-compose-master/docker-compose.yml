@@ -1,0 +1,83 @@
+version: '3.8'
+services:
+  postgres-airflow:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_USER: airflowuser
+      POSTGRES_DB: airflowdb
+      AIRFLOW_SCHEMA: airflow
+    expose:
+      - 5432
+    restart: always
+    volumes:
+      - ./scripts_postgres:/docker-entrypoint-initdb.d
+    networks:
+      - superset-network
+
+  postgres-dbt:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_USER: dbtuser
+      POSTGRES_DB: dbtdb
+      DBT_SCHEMA: dbt
+      DBT_RAW_DATA_SCHEMA: dbt_raw_data
+    ports:
+      - "5433:5432"
+    restart: always
+    volumes:
+      - ./sample_data:/sample_data
+    networks:
+      - superset-network
+
+  airflow:
+    build: .
+    restart: always
+    environment: 
+      DBT_PROFILES_DIR: /dbt
+      AIRFLOW_HOME: /airflow
+      AIRFLOW__CORE__DAGS_FOLDER: /airflow/dags
+      AIRFLOW__CORE__PARALLELISM: 4
+      AIRFLOW__CORE__DAG_CONCURRENCY: 4
+      AIRFLOW__CORE__MAX_ACTIVE_RUNS_PER_DAG: 4
+      AIRFLOW__CORE__LOAD_EXAMPLES: False
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql://airflowuser:pssd@postgres-airflow:5432/airflowdb
+      POSTGRES_USER: airflowuser
+      POSTGRES_PASSWORD: pssd
+      POSTGRES_HOST: postgres-airflow
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: airflowdb
+      DBT_POSTGRES_PASSWORD: pssd
+      DBT_POSTGRES_USER: dbtuser
+      DBT_POSTGRES_DB: dbtdb
+      DBT_POSTGRES_HOST: postgres-dbt
+      DBT_POSTGRES_PORT: 5432
+      DBT_DBT_SCHEMA: dbt
+      DBT_DBT_RAW_DATA_SCHEMA: dbt_raw_data
+    depends_on:
+      - postgres-airflow
+      - postgres-dbt
+    ports:
+      - 8000:8080
+    volumes:
+      - ./dbt:/dbt
+      - ./airflow:/airflow
+    networks:
+      - superset-network
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres-airflow
+      - postgres-dbt
+    networks:
+      - superset-network
+
+# 👇 Esta sección va al final del archivo
+networks:
+  superset-network:
+    external: true

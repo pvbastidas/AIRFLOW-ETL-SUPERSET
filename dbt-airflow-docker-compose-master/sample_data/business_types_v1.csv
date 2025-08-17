@@ -1,0 +1,10 @@
+initcap;active;business_type_id
+Comercio;true;2
+Cnpj Invalido;true;9
+Restaurante;true;1
+Donaciones;true;6
+Líderes De Comunidad;true;5
+Institución;true;4
+Fraud;true;7
+Hogar;true;3
+Duplicated;true;8

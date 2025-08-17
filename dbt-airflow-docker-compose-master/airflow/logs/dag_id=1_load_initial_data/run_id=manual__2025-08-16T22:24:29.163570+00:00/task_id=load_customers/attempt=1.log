@@ -1,0 +1,28 @@
+[2025-08-16 22:24:37,106] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.load_customers manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:37,118] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.load_customers manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:37,120] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:37,128] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 22:24:37,128] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:37,143] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): load_customers> on 2025-08-16 22:24:29.163570+00:00
+[2025-08-16 22:24:37,150] {standard_task_runner.py:52} INFO - Started process 159 to run task
+[2025-08-16 22:24:37,161] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'load_customers', 'manual__2025-08-16T22:24:29.163570+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmpa03__ug1', '--error-file', '/tmp/tmptb1e3yll']
+[2025-08-16 22:24:37,167] {standard_task_runner.py:80} INFO - Job 24: Subtask load_customers
+[2025-08-16 22:24:37,271] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.load_customers manual__2025-08-16T22:24:29.163570+00:00 [running]> on host f4989c8fe60b
+[2025-08-16 22:24:37,348] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=load_customers
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T22:24:29.163570+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T22:24:29.163570+00:00
+[2025-08-16 22:24:37,350] {sql.py:262} INFO - Executing: COPY dbt_raw_data.customers FROM '/sample_data/customers_v1.csv' DELIMITER ';' CSV HEADER;
+[2025-08-16 22:24:37,365] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:37,403] {logging_mixin.py:115} WARNING - /usr/local/lib/python3.8/site-packages/airflow/models/connection.py:339 DeprecationWarning: The "schema" arg has been renamed to "database" as it contained the database name.Please use "database" to set the database name.
+[2025-08-16 22:24:37,421] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:37,434] {sql.py:375} INFO - Running statement: COPY dbt_raw_data.customers FROM '/sample_data/customers_v1.csv' DELIMITER ';' CSV HEADER;, parameters: None
+[2025-08-16 22:24:39,064] {sql.py:384} INFO - Rows affected: 303752
+[2025-08-16 22:24:39,096] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=1_load_initial_data, task_id=load_customers, execution_date=20250816T222429, start_date=20250816T222437, end_date=20250816T222439
+[2025-08-16 22:24:39,164] {local_task_job.py:156} INFO - Task exited with return code 0
+[2025-08-16 22:24:39,199] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

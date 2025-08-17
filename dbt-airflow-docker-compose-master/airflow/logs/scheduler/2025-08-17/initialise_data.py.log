@@ -1,0 +1,49 @@
+[2025-08-17 00:00:15,942] {processor.py:153} INFO - Started process (PID=758) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:00:15,945] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:00:15,947] {logging_mixin.py:115} INFO - [2025-08-17 00:00:15,947] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:00:16,014] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:00:16,078] {logging_mixin.py:115} INFO - [2025-08-17 00:00:16,078] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:00:16,113] {logging_mixin.py:115} INFO - [2025-08-17 00:00:16,113] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:00:16,125] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.191 seconds
+[2025-08-17 00:00:46,345] {processor.py:153} INFO - Started process (PID=763) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:00:46,347] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:00:46,349] {logging_mixin.py:115} INFO - [2025-08-17 00:00:46,349] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:00:46,415] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:00:46,481] {logging_mixin.py:115} INFO - [2025-08-17 00:00:46,480] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:00:46,510] {logging_mixin.py:115} INFO - [2025-08-17 00:00:46,510] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:00:46,524] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.202 seconds
+[2025-08-17 00:01:16,813] {processor.py:153} INFO - Started process (PID=768) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:01:16,816] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:01:16,818] {logging_mixin.py:115} INFO - [2025-08-17 00:01:16,818] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:01:16,870] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:01:16,925] {logging_mixin.py:115} INFO - [2025-08-17 00:01:16,925] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:01:16,961] {logging_mixin.py:115} INFO - [2025-08-17 00:01:16,961] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:01:16,972] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.169 seconds
+[2025-08-17 00:01:47,082] {processor.py:153} INFO - Started process (PID=773) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:01:47,085] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:01:47,088] {logging_mixin.py:115} INFO - [2025-08-17 00:01:47,088] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:01:47,156] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:01:47,219] {logging_mixin.py:115} INFO - [2025-08-17 00:01:47,219] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:01:47,247] {logging_mixin.py:115} INFO - [2025-08-17 00:01:47,247] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:01:47,259] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.190 seconds
+[2025-08-17 00:02:17,446] {processor.py:153} INFO - Started process (PID=778) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:02:17,448] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:02:17,451] {logging_mixin.py:115} INFO - [2025-08-17 00:02:17,451] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:02:17,561] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:02:17,634] {logging_mixin.py:115} INFO - [2025-08-17 00:02:17,634] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:02:17,669] {logging_mixin.py:115} INFO - [2025-08-17 00:02:17,669] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:02:17,684] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.243 seconds
+[2025-08-17 00:02:47,920] {processor.py:153} INFO - Started process (PID=783) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:02:47,923] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:02:47,926] {logging_mixin.py:115} INFO - [2025-08-17 00:02:47,926] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:02:47,997] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:02:48,080] {logging_mixin.py:115} INFO - [2025-08-17 00:02:48,080] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:02:48,129] {logging_mixin.py:115} INFO - [2025-08-17 00:02:48,129] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:02:48,144] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.236 seconds
+[2025-08-17 00:03:18,407] {processor.py:153} INFO - Started process (PID=788) to work on /airflow/dags/initialise_data.py
+[2025-08-17 00:03:18,411] {processor.py:641} INFO - Processing file /airflow/dags/initialise_data.py for tasks to queue
+[2025-08-17 00:03:18,413] {logging_mixin.py:115} INFO - [2025-08-17 00:03:18,413] {dagbag.py:507} INFO - Filling up the DagBag from /airflow/dags/initialise_data.py
+[2025-08-17 00:03:18,474] {processor.py:651} INFO - DAG(s) dict_keys(['1_load_initial_data']) retrieved from /airflow/dags/initialise_data.py
+[2025-08-17 00:03:18,528] {logging_mixin.py:115} INFO - [2025-08-17 00:03:18,528] {dag.py:2371} INFO - Sync 1 DAGs
+[2025-08-17 00:03:18,557] {logging_mixin.py:115} INFO - [2025-08-17 00:03:18,557] {dag.py:2915} INFO - Setting next_dagrun for 1_load_initial_data to None, run_after=None
+[2025-08-17 00:03:18,571] {processor.py:161} INFO - Processing /airflow/dags/initialise_data.py took 0.177 seconds

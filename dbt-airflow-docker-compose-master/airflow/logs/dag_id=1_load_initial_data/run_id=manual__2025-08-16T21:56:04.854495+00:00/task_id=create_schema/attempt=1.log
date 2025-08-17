@@ -1,0 +1,39 @@
+[2025-08-16 21:56:06,411] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_schema manual__2025-08-16T21:56:04.854495+00:00 [queued]>
+[2025-08-16 21:56:06,419] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_schema manual__2025-08-16T21:56:04.854495+00:00 [queued]>
+[2025-08-16 21:56:06,421] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 21:56:06,423] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 21:56:06,424] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 21:56:06,433] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): create_schema> on 2025-08-16 21:56:04.854495+00:00
+[2025-08-16 21:56:06,439] {standard_task_runner.py:52} INFO - Started process 114 to run task
+[2025-08-16 21:56:06,443] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'create_schema', 'manual__2025-08-16T21:56:04.854495+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmp3vi7hzy0', '--error-file', '/tmp/tmpu9dafrk6']
+[2025-08-16 21:56:06,447] {standard_task_runner.py:80} INFO - Job 22: Subtask create_schema
+[2025-08-16 21:56:06,538] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.create_schema manual__2025-08-16T21:56:04.854495+00:00 [running]> on host 7641acd409d7
+[2025-08-16 21:56:06,612] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=create_schema
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T21:56:04.854495+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T21:56:04.854495+00:00
+[2025-08-16 21:56:06,614] {sql.py:262} INFO - Executing: CREATE SCHEMA IF NOT EXISTS dbt_raw_data;
+[2025-08-16 21:56:06,644] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 263, in execute
+    hook = self.get_db_hook()
+  File "/usr/local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 181, in get_db_hook
+    return self._hook
+  File "/usr/local/lib/python3.8/functools.py", line 967, in __get__
+    val = self.func(instance)
+  File "/usr/local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 143, in _hook
+    conn = BaseHook.get_connection(self.conn_id)
+  File "/usr/local/lib/python3.8/site-packages/airflow/hooks/base.py", line 67, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/usr/local/lib/python3.8/site-packages/airflow/models/connection.py", line 430, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `dbt_postgres_instance_raw_data` isn't defined
+[2025-08-16 21:56:06,650] {taskinstance.py:1395} INFO - Marking task as UP_FOR_RETRY. dag_id=1_load_initial_data, task_id=create_schema, execution_date=20250816T215604, start_date=20250816T215606, end_date=20250816T215606
+[2025-08-16 21:56:06,661] {standard_task_runner.py:92} ERROR - Failed to execute job 22 for task create_schema (The conn_id `dbt_postgres_instance_raw_data` isn't defined; 114)
+[2025-08-16 21:56:06,699] {local_task_job.py:156} INFO - Task exited with return code 1
+[2025-08-16 21:56:06,737] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

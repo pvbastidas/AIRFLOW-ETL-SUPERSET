@@ -1,0 +1,21 @@
+FROM python:3.8
+RUN pip install wtforms==2.3.3 && \
+    pip install python-decouple && \
+    pip install 'apache-airflow[postgres]==2.3.0' && \
+    pip install dbt-postgres==1.5.2 && \
+    pip install sqlalchemy==1.4.9 && \
+    pip install flask==1.1.4 && \
+    pip install black==23.3.0 && \
+    pip install click==7.1.2 && \
+    pip install pandas==1.4.1 && \
+    pip install requests==2.24.0 && \
+    pip install psycopg2-binary==2.9.6 && \
+    pip install pendulum==2.1.2 && \
+    pip install youtube-search-python && \
+    pip install 'httpx==0.23.3' 
+
+RUN mkdir /project
+COPY scripts_airflow/ /project/scripts/
+
+RUN chmod +x /project/scripts/init.sh
+ENTRYPOINT [ "/project/scripts/init.sh" ]

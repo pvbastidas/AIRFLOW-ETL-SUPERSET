@@ -1,0 +1,27 @@
+[2025-08-16 22:24:32,629] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.drop_table_site_codes manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:32,639] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.drop_table_site_codes manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:32,640] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:32,641] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 22:24:32,643] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:32,652] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): drop_table_site_codes> on 2025-08-16 22:24:29.163570+00:00
+[2025-08-16 22:24:32,657] {standard_task_runner.py:52} INFO - Started process 140 to run task
+[2025-08-16 22:24:32,661] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'drop_table_site_codes', 'manual__2025-08-16T22:24:29.163570+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmpxadz5m5s', '--error-file', '/tmp/tmpd1z_7bom']
+[2025-08-16 22:24:32,664] {standard_task_runner.py:80} INFO - Job 16: Subtask drop_table_site_codes
+[2025-08-16 22:24:32,747] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.drop_table_site_codes manual__2025-08-16T22:24:29.163570+00:00 [running]> on host f4989c8fe60b
+[2025-08-16 22:24:32,839] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=drop_table_site_codes
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T22:24:29.163570+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T22:24:29.163570+00:00
+[2025-08-16 22:24:32,841] {sql.py:262} INFO - Executing: DROP TABLE IF EXISTS dbt_raw_data.site_codes;
+[2025-08-16 22:24:32,860] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:32,892] {logging_mixin.py:115} WARNING - /usr/local/lib/python3.8/site-packages/airflow/models/connection.py:339 DeprecationWarning: The "schema" arg has been renamed to "database" as it contained the database name.Please use "database" to set the database name.
+[2025-08-16 22:24:32,911] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:32,929] {sql.py:375} INFO - Running statement: DROP TABLE IF EXISTS dbt_raw_data.site_codes;, parameters: None
+[2025-08-16 22:24:32,959] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=1_load_initial_data, task_id=drop_table_site_codes, execution_date=20250816T222429, start_date=20250816T222432, end_date=20250816T222432
+[2025-08-16 22:24:32,997] {local_task_job.py:156} INFO - Task exited with return code 0
+[2025-08-16 22:24:33,041] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

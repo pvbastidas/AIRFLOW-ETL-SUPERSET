@@ -1,0 +1,110 @@
+[2025-08-16 22:24:34,734] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.populate_dim_fecha manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:34,741] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.populate_dim_fecha manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:34,743] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:34,744] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 22:24:34,745] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:34,753] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): populate_dim_fecha> on 2025-08-16 22:24:29.163570+00:00
+[2025-08-16 22:24:34,762] {standard_task_runner.py:52} INFO - Started process 149 to run task
+[2025-08-16 22:24:34,763] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'populate_dim_fecha', 'manual__2025-08-16T22:24:29.163570+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmpi355shr4', '--error-file', '/tmp/tmpyzc5xnbj']
+[2025-08-16 22:24:34,766] {standard_task_runner.py:80} INFO - Job 20: Subtask populate_dim_fecha
+[2025-08-16 22:24:34,863] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.populate_dim_fecha manual__2025-08-16T22:24:29.163570+00:00 [running]> on host f4989c8fe60b
+[2025-08-16 22:24:34,991] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=populate_dim_fecha
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T22:24:29.163570+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T22:24:29.163570+00:00
+[2025-08-16 22:24:34,993] {sql.py:262} INFO - Executing: 
+    INSERT INTO dbt_raw_data.dim_fecha (fecha, anio, mes, dia, dia_semana, nombre_dia_semana, nombre_mes, trimestre, anio_semana, es_fin_semana)
+    SELECT 
+        fecha_series.fecha,
+        EXTRACT(YEAR FROM fecha_series.fecha)::SMALLINT AS anio,
+        EXTRACT(MONTH FROM fecha_series.fecha)::SMALLINT AS mes,
+        EXTRACT(DAY FROM fecha_series.fecha)::SMALLINT AS dia,
+        EXTRACT(DOW FROM fecha_series.fecha)::SMALLINT AS dia_semana,
+        CASE EXTRACT(DOW FROM fecha_series.fecha)
+            WHEN 0 THEN 'Domingo'
+            WHEN 1 THEN 'Lunes'
+            WHEN 2 THEN 'Martes'
+            WHEN 3 THEN 'Miércoles'
+            WHEN 4 THEN 'Jueves'
+            WHEN 5 THEN 'Viernes'
+            WHEN 6 THEN 'Sábado'
+        END AS nombre_dia_semana,
+        CASE EXTRACT(MONTH FROM fecha_series.fecha)
+            WHEN 1 THEN 'Enero'
+            WHEN 2 THEN 'Febrero'
+            WHEN 3 THEN 'Marzo'
+            WHEN 4 THEN 'Abril'
+            WHEN 5 THEN 'Mayo'
+            WHEN 6 THEN 'Junio'
+            WHEN 7 THEN 'Julio'
+            WHEN 8 THEN 'Agosto'
+            WHEN 9 THEN 'Septiembre'
+            WHEN 10 THEN 'Octubre'
+            WHEN 11 THEN 'Noviembre'
+            WHEN 12 THEN 'Diciembre'
+        END AS nombre_mes,
+        EXTRACT(QUARTER FROM fecha_series.fecha)::SMALLINT AS trimestre,
+        EXTRACT(WEEK FROM fecha_series.fecha)::SMALLINT AS anio_semana,
+        EXTRACT(DOW FROM fecha_series.fecha) IN (5, 6) AS mes_fin_semana
+    FROM (
+        SELECT generate_series(
+            '2020-01-01'::date,
+            '2030-12-31'::date,
+            '1 day'::interval
+        )::date AS fecha
+    ) fecha_series;
+    
+[2025-08-16 22:24:35,014] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:35,074] {logging_mixin.py:115} WARNING - /usr/local/lib/python3.8/site-packages/airflow/models/connection.py:339 DeprecationWarning: The "schema" arg has been renamed to "database" as it contained the database name.Please use "database" to set the database name.
+[2025-08-16 22:24:35,094] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:35,114] {sql.py:375} INFO - Running statement: 
+    INSERT INTO dbt_raw_data.dim_fecha (fecha, anio, mes, dia, dia_semana, nombre_dia_semana, nombre_mes, trimestre, anio_semana, es_fin_semana)
+    SELECT 
+        fecha_series.fecha,
+        EXTRACT(YEAR FROM fecha_series.fecha)::SMALLINT AS anio,
+        EXTRACT(MONTH FROM fecha_series.fecha)::SMALLINT AS mes,
+        EXTRACT(DAY FROM fecha_series.fecha)::SMALLINT AS dia,
+        EXTRACT(DOW FROM fecha_series.fecha)::SMALLINT AS dia_semana,
+        CASE EXTRACT(DOW FROM fecha_series.fecha)
+            WHEN 0 THEN 'Domingo'
+            WHEN 1 THEN 'Lunes'
+            WHEN 2 THEN 'Martes'
+            WHEN 3 THEN 'Miércoles'
+            WHEN 4 THEN 'Jueves'
+            WHEN 5 THEN 'Viernes'
+            WHEN 6 THEN 'Sábado'
+        END AS nombre_dia_semana,
+        CASE EXTRACT(MONTH FROM fecha_series.fecha)
+            WHEN 1 THEN 'Enero'
+            WHEN 2 THEN 'Febrero'
+            WHEN 3 THEN 'Marzo'
+            WHEN 4 THEN 'Abril'
+            WHEN 5 THEN 'Mayo'
+            WHEN 6 THEN 'Junio'
+            WHEN 7 THEN 'Julio'
+            WHEN 8 THEN 'Agosto'
+            WHEN 9 THEN 'Septiembre'
+            WHEN 10 THEN 'Octubre'
+            WHEN 11 THEN 'Noviembre'
+            WHEN 12 THEN 'Diciembre'
+        END AS nombre_mes,
+        EXTRACT(QUARTER FROM fecha_series.fecha)::SMALLINT AS trimestre,
+        EXTRACT(WEEK FROM fecha_series.fecha)::SMALLINT AS anio_semana,
+        EXTRACT(DOW FROM fecha_series.fecha) IN (5, 6) AS mes_fin_semana
+    FROM (
+        SELECT generate_series(
+            '2020-01-01'::date,
+            '2030-12-31'::date,
+            '1 day'::interval
+        )::date AS fecha
+    ) fecha_series;
+    , parameters: None
+[2025-08-16 22:24:35,147] {sql.py:384} INFO - Rows affected: 4018
+[2025-08-16 22:24:35,187] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=1_load_initial_data, task_id=populate_dim_fecha, execution_date=20250816T222429, start_date=20250816T222434, end_date=20250816T222435
+[2025-08-16 22:24:35,220] {local_task_job.py:156} INFO - Task exited with return code 0
+[2025-08-16 22:24:35,285] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

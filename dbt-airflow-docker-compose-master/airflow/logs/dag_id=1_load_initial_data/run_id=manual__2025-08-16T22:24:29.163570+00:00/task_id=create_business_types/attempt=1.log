@@ -1,0 +1,39 @@
+[2025-08-16 22:24:34,760] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_business_types manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:34,771] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: 1_load_initial_data.create_business_types manual__2025-08-16T22:24:29.163570+00:00 [queued]>
+[2025-08-16 22:24:34,773] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:34,774] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2025-08-16 22:24:34,775] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2025-08-16 22:24:34,786] {taskinstance.py:1377} INFO - Executing <Task(PostgresOperator): create_business_types> on 2025-08-16 22:24:29.163570+00:00
+[2025-08-16 22:24:34,794] {standard_task_runner.py:52} INFO - Started process 150 to run task
+[2025-08-16 22:24:34,801] {standard_task_runner.py:79} INFO - Running: ['airflow', 'tasks', 'run', '1_load_initial_data', 'create_business_types', 'manual__2025-08-16T22:24:29.163570+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/initialise_data.py', '--cfg-path', '/tmp/tmpm0_kgo4g', '--error-file', '/tmp/tmp39uauvj4']
+[2025-08-16 22:24:34,805] {standard_task_runner.py:80} INFO - Job 19: Subtask create_business_types
+[2025-08-16 22:24:34,902] {task_command.py:369} INFO - Running <TaskInstance: 1_load_initial_data.create_business_types manual__2025-08-16T22:24:29.163570+00:00 [running]> on host f4989c8fe60b
+[2025-08-16 22:24:35,034] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=airflow
+AIRFLOW_CTX_DAG_ID=1_load_initial_data
+AIRFLOW_CTX_TASK_ID=create_business_types
+AIRFLOW_CTX_EXECUTION_DATE=2025-08-16T22:24:29.163570+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-08-16T22:24:29.163570+00:00
+[2025-08-16 22:24:35,038] {sql.py:262} INFO - Executing: 
+    CREATE TABLE IF NOT EXISTS dbt_raw_data.business_types (
+        initcap VARCHAR(64),
+        active BOOLEAN,
+        business_type_id INT PRIMARY KEY
+    );
+    
+[2025-08-16 22:24:35,060] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:35,087] {logging_mixin.py:115} WARNING - /usr/local/lib/python3.8/site-packages/airflow/models/connection.py:339 DeprecationWarning: The "schema" arg has been renamed to "database" as it contained the database name.Please use "database" to set the database name.
+[2025-08-16 22:24:35,102] {base.py:68} INFO - Using connection ID 'dbt_postgres_instance_raw_data' for task execution.
+[2025-08-16 22:24:35,122] {sql.py:375} INFO - Running statement: 
+    CREATE TABLE IF NOT EXISTS dbt_raw_data.business_types (
+        initcap VARCHAR(64),
+        active BOOLEAN,
+        business_type_id INT PRIMARY KEY
+    );
+    , parameters: None
+[2025-08-16 22:24:35,148] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=1_load_initial_data, task_id=create_business_types, execution_date=20250816T222429, start_date=20250816T222434, end_date=20250816T222435
+[2025-08-16 22:24:35,211] {local_task_job.py:156} INFO - Task exited with return code 0
+[2025-08-16 22:24:35,269] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check
