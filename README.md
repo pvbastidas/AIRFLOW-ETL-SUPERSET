@@ -263,9 +263,9 @@ docker-compose  logs  airflow
 - Conecta la base de datos usando la cadena: `postgresql+psycopg2://dbtuser:pssd@postgres-dbt:5432/dbtdb`
 
 - Verifica que puedas ver las tablas creadas y juega con los datos 😃
-
-```
 ![Superset](dbt-airflow-docker-compose-master/bi.png)
+```
+
   
 
 ## 🔗 Conexiones y URLs
